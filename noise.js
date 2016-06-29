@@ -1,5 +1,11 @@
 $(document).ready( function() {
 
+  // play a note
+  function playNote(note) {
+    sounds.children("#" + note + "Audio")[0].load()
+    sounds.children("#" + note + "Audio")[0].play()
+  }
+
   // on clck
   var sounds = $("#audio_embeds")
   var container = $(".instrument")
@@ -9,9 +15,8 @@ $(document).ready( function() {
     event.preventDefault()
 
     var button = $(this)
-    var id = this.getAttribute("id")
-    sounds.children("#" + id + "Audio")[0].load()
-    sounds.children("#" + id + "Audio")[0].play()
+    var note = this.getAttribute("id")
+    playNote(note)
   })
 
   // on button press
@@ -26,8 +31,7 @@ $(document).ready( function() {
   }
 
   $(document).keydown(function(event) {
-    var id = keys[event.which]
-    sounds.children("#" + id + "Audio")[0].load()
-    sounds.children("#" + id + "Audio")[0].play()
+    var note = keys[event.which]
+    playNote(note)
   })
 })
