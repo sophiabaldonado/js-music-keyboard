@@ -15,7 +15,7 @@ $(document).ready( function() {
     event.preventDefault()
 
     var button = $(this)
-    var note = this.getAttribute("id")
+    var note = button.data("note")
     playNote(note)
   })
 
