@@ -6,6 +6,8 @@ $(document).ready( function() {
     sounds.children("#" + note + "Audio")[0].play()
   }
 
+  //
+
   // on clck
   var sounds = $("#audio_embeds")
   var container = $(".instrument")
@@ -32,6 +34,12 @@ $(document).ready( function() {
 
   $(document).keydown(function(event) {
     var note = keys[event.which]
+    $('.note.' + note).addClass("active")
     playNote(note)
+  })
+
+  $(document).keyup(function(event) {
+    var note = keys[event.which]
+    $('.note.' + note).removeClass("active")
   })
 })
